@@ -1,0 +1,75 @@
+.input-box {
+  width: 100px;
+  position: relative;
+  /* top: 5px; */
+  left: 10px;
+  z-index: 9;
+  
+  /* margin-top: 20px; */
+  /* margin-left: 20px; */
+  /* border: 1px solid var(--soma-color-neutral-2); */
+  
+  /* padding: 8px; */
+  border-radius: 0 0 4px 4px;
+}
+
+.side-box {
+  height: 25px;
+  width: 200px;
+  float:left; /* add this */
+  /* border: 1px solid red; */
+}
+
+.below-box {
+  position: relative;
+  float: left;
+  clear:both;
+  /* bottom: 500px; */
+  top: 10px;
+  /* bottom: 5px; */
+}
+
+.wrapper {
+  /* border: 1px solid black; */
+  overflow: hidden; 
+  height: 75px;
+  /* will contain if #first is longer than #second */
+}
+
+.first {
+  width: 300px;
+  float:left; /* add this */
+  border: 1px solid red;
+}
+
+/* 2nd componente fica à direita do primeiro */
+.second {
+  border: 1px solid green;
+  float: inline-end;
+  overflow: hidden; 
+}
+
+/* 2nd componente fica embaixo do primeiro */
+/* .second {
+  border: 1px solid green;
+  float: left;
+} */
+
+.execution-btn {
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+.big-query-btn {
+  background-color: #555555; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

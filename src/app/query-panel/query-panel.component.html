@@ -1,0 +1,91 @@
+
+<div>
+  <h3> Consultas por ônibus</h3>
+  <div class="wrapper">
+    <div class="side-box">
+      <label for="fname">ID ônibus:</label>
+      <input type="text" class="input-box" placeholder="Ex: A72109" [(ngModel)]="selectedQuery1.id">
+    </div>
+
+    <div class="side-box">
+      <select [(ngModel)]="selectedQuery1.queryType">
+        <option *ngFor="let query of SimpleQueriesOptionsLst" [ngValue]="query.id"> {{ query.text }}</option>
+      </select>
+    </div>
+
+    <div class="below-box">
+      <div class="side-box">
+        <label>Data início:</label>
+        <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery1.initDate.date">
+      </div>
+      <div class="side-box">
+        <label>Data fim:</label>
+        <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery1.endDate.date">
+      </div>
+    </div>
+  </div>
+
+  <button class="execution-btn" (click)="executeQuery()"> Executar </button>
+</div>
+
+<hr>
+
+<div>
+  <h3> Consultas por linha</h3>
+  <div class="wrapper">
+    <div class="side-box">
+      <label for="fname">ID linha:</label>
+      <input type="text" class="input-box" placeholder="Ex: 410" [(ngModel)]="selectedQuery2.id">
+    </div>
+
+    <div class="side-box">
+      <select [(ngModel)]="selectedQuery2.queryType">
+        <option *ngFor="let query of SimpleQueriesOptionsLst" [ngValue]="query.id"> {{ query.text }}</option>
+      </select>
+    </div>
+
+    <div class="below-box">
+      <div class="side-box">
+        <label>Data início:</label>
+        <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery2.initDate.date">
+      </div>
+      <div class="side-box">
+        <label>Data fim:</label>
+        <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery2.endDate.date">
+      </div>
+    </div>
+  </div>
+
+  <button class="execution-btn" (click)="executeQuery()"> Executar </button>
+</div>
+
+<hr>
+
+<div>
+  <h3> Consultas por intervalo de tempo</h3>
+  <div class="wrapper">
+    <div class="side-box">
+      <label>Data início:</label>
+      <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery3.initDate.date">
+    </div>
+    <div class="side-box">
+      <label>Data fim:</label>
+      <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery3.endDate.date">
+    </div>
+
+    <!-- <div class="below-box">
+        <label> Consulta Selecionada: {{ selectedQuery3.text }} </label>
+    </div> -->
+  </div>
+
+  <label> Selecione uma das seguintes consultas: </label>
+  <ul>
+    <li *ngFor="let query of timeBasedQueryOptions" (click)="onSelectQ3(query.id)" style="cursor: pointer;">
+      {{query.text}}
+    </li>
+  </ul>
+
+  <button class="execution-btn" (click)="executeQuery()"> Executar </button>
+</div>
+
+<hr>

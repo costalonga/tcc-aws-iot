@@ -1,3 +1,7 @@
+import 'zone.js';
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -10,3 +14,6 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+Amplify.configure(awsconfig);
+Auth.configure(awsconfig);
