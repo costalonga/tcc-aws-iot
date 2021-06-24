@@ -12,6 +12,8 @@ export class AppComponent {
 
   constructor(private ref: ChangeDetectorRef) {}
 
+  // CHECK ISSUE: https://forum.ionicframework.com/t/aws-amplify-authenication-using-pre-built-ui-components/208433/7
+
   ngOnInit () {
     onAuthUIStateChange((authState, authData) => {
       this.authState = authState;

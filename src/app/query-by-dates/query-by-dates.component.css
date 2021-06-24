@@ -1,0 +1,96 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 50px;
+}
+
+
+.search-query-panel {
+  flex: 1;
+  position: relative;
+}  
+
+.wrapper {
+  /* border: 1px solid black; */
+  /* overflow: hidden;  */
+  /* height: 75px; -- OLD VALUE */
+  height: 125px;
+  /* will contain if #first is longer than #second */
+}
+
+
+.side-box {
+  height: 25px;
+  width: 200px;
+  float:left; /* add this */
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+
+.below-box {
+  position: relative;
+  float: left;
+  clear:both;
+  /* bottom: 500px; */
+  top: 10px;
+  /* bottom: 5px; */
+  /* border: 1px solid green; */
+
+}
+
+
+.input-box {
+  width: 100px;
+  position: relative;
+  /* top: 5px; */
+  left: 10px;
+  z-index: 9;
+  border-radius: 0 0 4px 4px;
+}
+
+
+.results-query-panel {
+  flex: 1;
+}  
+
+.flex-inner-child-right {
+  flex: 1;
+  margin-left: 20px;
+}  
+
+.toggle_button{
+  float: right;
+  /* margin-left:20px; */
+}
+
+.execution-btn {
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+
+
+.bigger-side-box {
+  height: 70px;
+  width: 450px;
+  float:left; /* add this */
+  /* border: 1px solid orange; */
+  box-sizing: border-box;
+}
+
+.result-side-box {
+  height: 175px;
+  width: 650px;
+  float:left; /* add this */
+  /* border: 1px solid orange; */
+  box-sizing: border-box;
+  overflow: scroll; 
+}
+
+
+.square {
+  border: solid 21px #f0f;
+  width: 250px;
+  height: 250px;
+}

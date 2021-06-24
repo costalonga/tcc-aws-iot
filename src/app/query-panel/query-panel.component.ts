@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomDateObject } from './date-format-model';
+import { MockedQuery, QueryResultType1, QueryResultType2 } from './mocked-queries-result';
 
-enum QueryOptionsEnum {
-  Tempo = "TempoMédio do Trajeto!",
+
+
+export enum QueryOptionsEnum {
+  Tempo = "Tempo Médio do Trajeto",
   Quilometragem = "Quilometragem Percorrida"
 }
+
+
+export enum ThirdQueryOptionsEnum {
+  MelhorTempo = "Tempo Médio do Trajeto",
+  PiorTempo = "Tempo Médio do Trajeto",
+  MelhorQuilometragem = "Quilometragem Percorrida",
+  PiorQuilometragem = "Quilometragem Percorrida"
+}
+
+
 export interface SimpleQueryOptionsInterface {
   id: QueryOptionsEnum;
   text: string;
@@ -14,6 +27,13 @@ export interface IDBasedQuery {
   queryType: QueryOptionsEnum;
   initDate: CustomDateObject;
   endDate: CustomDateObject;
+
+  // // TODO: Create new component with this properties
+  // // Reuse component 3 times -> reduce HTML and TS files size
+  // // Use data binding from APP.component to its (3) childs (one child per query component) 
+  // // Each Component should have its own Execute, Toggle, and etc... methods
+  // exhibitResultContent: boolean;
+  // exhibitQueryResult: boolean;
 }
 
 export interface TimeBasedQueryOption {
@@ -37,6 +57,13 @@ export interface Q3OptionFormat {
   styleUrls: ['./query-panel.component.css']
 })
 export class QueryPanelComponent implements OnInit {
+
+  // TODO HERE
+  firstQueryResults: QueryResultType1[] = new MockedQuery().q1Results;
+  secondQueryResults: QueryResultType2[] = new MockedQuery().q2Results;
+  thirdQueryResults: QueryResultType1[] = new MockedQuery().q3Results;
+  // TODO HERE
+
 
   SimpleQueriesOptionsLst: SimpleQueryOptionsInterface[] = [
     {id: QueryOptionsEnum.Tempo, text: "Tempo Médio do Trajeto"},
@@ -62,10 +89,15 @@ export class QueryPanelComponent implements OnInit {
   selectedQuery2: IDBasedQuery;
   selectedQuery3: TimeBasedQuery;
 
-  public exhibit = {
-    status: true,
-    symbol: '-'
+  exhibitQueryResult: boolean = false;
+  public exhibitResultContent = {
+    status: false,
+    symbol: '+'
   } 
+
+  public get QueryOptionsEnum(): typeof QueryOptionsEnum {
+    return QueryOptionsEnum; 
+  }
 
   constructor() { 
     this.selectedQuery1 = {
@@ -108,6 +140,8 @@ export class QueryPanelComponent implements OnInit {
     if (this.selectedQuery2.queryType == QueryOptionsEnum.Quilometragem) {
       console.log("queryType ID = enum.KM");
     }
+
+    this.showResult();
   }
 
   onSelectQ3(choosedQueryID: number): void {
@@ -120,13 +154,22 @@ export class QueryPanelComponent implements OnInit {
     console.log("Value of Q3:", this.selectedQuery3.text);
   }
 
-  // toggleContent(): void {
-  //   this.exhibit.status = !this.exhibit.status;
-  //   if (this.exhibit.status) {
-  //     this.exhibit.symbol = '-';
-  //   } else {
-  //     this.exhibit.symbol = '+';
-  //   }
-  // }
+  showResult(): void {
+    this.exhibitQueryResult = true;
+    this.exhibitResultContent.status = true;
+    this.exhibitResultContent.symbol = '-';
+  }
+
+  toggleContent(): void {
+    this.exhibitResultContent.status = !this.exhibitResultContent.status;
+    if (this.exhibitResultContent.status) {
+      this.exhibitResultContent.symbol = '-';
+    } else {
+      this.exhibitResultContent.symbol = '+';
+    }
+  }
+
+
+
 
 }

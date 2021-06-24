@@ -1,10 +1,73 @@
-<amplify-authenticator *ngIf="authState !== 'signedin'">
-</amplify-authenticator>
+<!-- <amplify-authenticator *ngIf="authState !== 'signedin'"></amplify-authenticator>
 
 <div *ngIf="authState === 'signedin' && user" class="App">
   <amplify-sign-out></amplify-sign-out>
-  <h2> Análise de Frequência </h2>
-  <!-- <h3> Olá, {{ user.username }} </h3> -->
-  <hr>
-  <app-query-panel></app-query-panel>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2> Qualidade do Serviço </h2>
+        <hr>
+        <br>
+        <h3> Consultas por ônibus </h3>
+        <app-query-by-bus-id></app-query-by-bus-id>
+        <h3> Consultas por linha </h3>
+        <app-query-by-line-id></app-query-by-line-id>
+        <h3> Consultas por intervalo de tempo </h3>
+        <app-query-by-dates></app-query-by-dates>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- 
+<div>
+  <amplify-authenticator *ngIf="authState !== 'signedin'">
+      
+  </amplify-authenticator>
+  <h3> Consultas por ônibus </h3>
+      <app-query-by-bus-id></app-query-by-bus-id>
+  <amplify-sign-out></amplify-sign-out>
+
+</div> -->
+
+<amplify-authenticator *ngIf="authState !== 'signedin'"></amplify-authenticator>
+<amplify-sign-out></amplify-sign-out>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 style="text-align: center; font-weight: 300;"> Qualidade do Serviço </h2>
+      <hr>
+      <h3 style="padding-left: 25px;"> Consultas por ônibus </h3>
+      <app-query-by-bus-id></app-query-by-bus-id>
+      <hr>
+      <h3 style="padding-left: 25px;"> Consultas por linha </h3>
+      <app-query-by-line-id></app-query-by-line-id>
+      <hr>
+      <h3 style="padding-left: 25px;"> Consultas por intervalo de tempo </h3>
+      <app-query-by-dates></app-query-by-dates>
+    </div>
+  </div>
 </div>
+
+
+
+<!-- <div *ngIf="authState === 'signedin' && user" class="App">
+  <amplify-sign-out></amplify-sign-out>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2> Qualidade do Serviço </h2>
+        <hr>
+        <br>
+        <h3> Consultas por ônibus </h3>
+        <app-query-by-bus-id></app-query-by-bus-id>
+        <h3> Consultas por linha </h3>
+        <app-query-by-line-id></app-query-by-line-id>
+        <h3> Consultas por intervalo de tempo </h3>
+        <app-query-by-dates></app-query-by-dates>
+      </div>
+    </div>
+  </div>
+</div> -->

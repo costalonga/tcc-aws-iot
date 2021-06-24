@@ -1,0 +1,80 @@
+ <!-- Q1 Panels -->
+ <div class="flex-container">
+
+  <div class="search-query-panel">
+
+    <div class="wrapper">
+      <div class="bigger-side-box"> 
+
+        <!-- ID -->
+        <div class="side-box">    
+          <label for="fname">ID ônibus:</label>
+          <input type="text" class="input-box" placeholder="Ex: 410-A72109" style="width: 110px;" [(ngModel)]="selectedQuery.id">
+        </div>
+
+        <!-- Drop Down Menu -->
+        <div class="side-box">
+          <select [(ngModel)]="selectedQuery.queryType">
+            <option *ngFor="let query of SimpleQueriesOptionsLst" [ngValue]="query.id"> {{ query.text }}</option>
+          </select>
+        </div>
+
+        <div class="below-box">
+          <div class="side-box">
+            <label>Data início:</label>
+            <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery.initDate.date">
+          </div>
+          <div class="side-box">
+            <label>Data fim:</label>
+            <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery.endDate.date">
+          </div>
+
+          <!-- Q1 Execution Button -->
+          <div class="side-box">
+            <button class="execution-btn" (click)="executeQuery()"> Executar </button>
+          </div>
+        </div>
+      </div>  <!-- END: bigger-side-box -->
+
+      
+      <div *ngIf="exhibitQueryResult">
+        
+        <div style="float:left;">
+          <button class="toggle_button" (click)="toggleContent()"> {{exhibitResultContent.symbol}} </button>
+        </div>
+        
+        <div *ngIf="exhibitResultContent.status">
+          <div class="result-side-box"> 
+            <div class="results-query-panel">
+              <table class="table table-striped">  
+                <thead>  
+                    <tr>  
+                      <th> ID Linha </th>  
+                      <th> Dia </th>  
+                      <th> Trajetos Concluídos </th>  
+                      <th> {{ selectedQuery.queryType }} </th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                  <tr *ngFor="let result of queryResults">  
+                    <td> {{ result.id }} </td>  
+                    <td> {{ result.data }} </td>  
+                    <td> {{ result.qtd_trajetos_completados }} </td>  
+                    <td *ngIf="selectedQuery.queryType === QueryOptionsEnum.Tempo"> {{ result.tempo }} </td>  
+                    <td *ngIf="selectedQuery.queryType === QueryOptionsEnum.Quilometragem"> {{ result.quilometragem }} </td>  
+                  </tr>  
+                </tbody>  
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>                                                                  <!-- END: wrapper --> 
+
+  <div>                                                                     <!-- END: search-query-panel --> 
+
+</div>
+
+

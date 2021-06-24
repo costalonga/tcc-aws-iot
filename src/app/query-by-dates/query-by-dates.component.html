@@ -1,0 +1,82 @@
+
+<!-- Q3 Panels -->
+<div class="flex-container">
+  
+
+  <div class="search-query-panel">
+
+    <div class="wrapper">
+      <div class="bigger-side-box"> 
+
+        <!-- ID -->
+        <div class="side-box">    
+          <label>Data início:</label>
+          <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery.initDate.date">
+        </div>
+
+        <div class="side-box">
+          <label>Data fim:</label>
+          <input type="text" class="input-box" placeholder="DD/MM/AAAA" [(ngModel)]="selectedQuery.endDate.date">
+        </div>
+
+
+        <div class="below-box">
+          <label> Selecione uma das seguintes consultas: </label>
+          <ul>
+            <li *ngFor="let query of timeBasedQueryOptions" (click)="onSelect(query.id)" style="cursor: pointer;">
+              {{query.text}}
+            </li>
+          </ul>
+        </div>
+
+        <div class="below-box">
+          <button class="execution-btn" (click)="executeQuery()"> Executar </button>
+        </div>
+
+      </div>  <!-- END: bigger-side-box -->
+
+      
+      <div *ngIf="exhibitQueryResult">
+        
+        <div style="float:left;">
+          <button class="toggle_button" (click)="toggleContent()"> {{exhibitResultContent.symbol}} </button>
+        </div>
+        
+        <div *ngIf="exhibitResultContent.status">
+          <b style="font-size: 15px;"> Resultado para: {{ selectedQuery.text }} </b>
+          <div class="result-side-box"> 
+            <div class="results-query-panel">
+              <table class="table table-striped">  
+                <thead>  
+                    <tr>  
+                      <th> ID Linha </th>  
+                      <th> data </th>  
+                      <th> qtd_trajetos_completados </th>  
+                      <th> Valor </th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                  <tr *ngFor="let result of queryResults">  
+                    <td> {{ result.id }} </td>  
+                    <td> {{ result.data }} </td>  
+                    <td> {{ result.qtd_trajetos_completados }} </td>  
+                    <td *ngIf="selectedQuery.queryID === 1"> {{ result.tempo }} </td>  
+                    <td *ngIf="selectedQuery.queryID === 2"> {{ result.quilometragem }} </td>  
+                    <td *ngIf="selectedQuery.queryID === 3"> {{ result.tempo }} </td>  
+                    <td *ngIf="selectedQuery.queryID === 4"> {{ result.quilometragem }} </td>  
+                  </tr>  
+                </tbody>  
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>                                                                  <!-- END: wrapper --> 
+
+  <div>                                                                     <!-- END: search-query-panel --> 
+
+</div>
+
+<!-- Q3 Execution Button -->
