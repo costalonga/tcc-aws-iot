@@ -5,7 +5,6 @@ export enum QueryOptionsEnum {
   Quilometragem = "Quilometragem Percorrida"
 }
 
-
 export interface SimpleQueryOptionsInterface {
   id: QueryOptionsEnum;
   text: string;
@@ -15,13 +14,6 @@ export interface IDBasedQuery {
   queryType: QueryOptionsEnum;
   initDate: CustomDateObject;
   endDate: CustomDateObject;
-
-  // // TODO: Create new component with this properties
-  // // Reuse component 3 times -> reduce HTML and TS files size
-  // // Use data binding from APP.component to its (3) childs (one child per query component) 
-  // // Each Component should have its own Execute, Toggle, and etc... methods
-  // exhibitResultContent: boolean;
-  // exhibitQueryResult: boolean;
 }
 
 export interface TimeBasedQueryOption {
