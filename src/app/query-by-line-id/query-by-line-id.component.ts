@@ -75,8 +75,12 @@ export class QueryByLineIdComponent implements OnInit {
 
 
     xhr.open("POST", "https://4x095vdhkd.execute-api.us-west-2.amazonaws.com/staging");
-
+    
     xhr.send();
+
+    // To solve, CORS problem correctly:
+    // AWS - REST API CORS SUPPORT: https://codeburst.io/react-js-api-calls-to-aws-lambda-api-gateway-and-dealing-with-cors-89fb897eb04d
+    // XHR - With Credentials: https://stackoverflow.com/questions/42803394/cors-credentials-mode-is-include
 
     this.showResult();
   }
