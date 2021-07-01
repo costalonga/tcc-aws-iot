@@ -37,7 +37,7 @@ export class QueryByBusIdComponent implements OnInit {
       id: "", 
       queryType: QueryOptionsEnum.Tempo,
       initDate: new CustomDateObject("02/03/2021"), // Oldest day from database
-      endDate: new CustomDateObject("16/63/2021")  // Newest day from database
+      endDate: new CustomDateObject("16/03/2021")  // Newest day from database
     }
 
     // this.selectedQuery2 = {
