@@ -64,12 +64,19 @@ export class QueryByLineIdComponent implements OnInit {
     console.log("Value of Simple Query 1:", this.selectedQuery.queryType);
     // console.log("Value of Simple Query 2:", this.selectedQuery2.queryType);
 
-    // if (this.selectedQuery2.queryType == QueryOptionsEnum.Tempo) {
-    //   console.log("queryType ID = enum.TEMPO");
-    // }
-    // if (this.selectedQuery2.queryType == QueryOptionsEnum.Quilometragem) {
-    //   console.log("queryType ID = enum.KM");
-    // }
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+      if(this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    });
+
+
+    xhr.open("POST", "https://4x095vdhkd.execute-api.us-west-2.amazonaws.com/staging");
+
+    xhr.send();
 
     this.showResult();
   }
