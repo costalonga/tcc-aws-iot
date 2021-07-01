@@ -1,4 +1,6 @@
-# AppPt3AngAmplify
+# Qualidade do Serviço
+
+![Alt text](arquitetura-app-2.png?raw=true "Arquitetura")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
